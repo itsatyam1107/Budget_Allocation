@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Company Budget Allocation</h1>
+    <div class="main">
+      
+            <li>
+                <label>Budget</label>
+                <input type="text">
+            </li>
+            <li>
+                Remaining
+            </li>
+            <li>
+                Spent so far
+            </li>
+       
+    </div>
+    <h2>Allocation</h2>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Department</th>
+                <th>Allocated Budget</th>
+                <th>Increment</th>
+                <th>Decrement</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Marketing</td>
+                <td id="1">$10000</td>
+                <td><button id ="11" class="increment_class">+</button></td>
+                <td><button id="21" class="increment_class">-</button></td>
+                <td><button>*</button></td>
+            </tr>
+            <tr>
+                <td>Finance</td>
+                <td id="2">$20000</td>
+                <td><button id="12" class="increment_class">+</button></td>
+                <td><button  id="22" class="increment_class">-</button></td>
+                <td><button>*</button></td>
+            </tr>
+            <tr>
+                <td>Sales</td>
+                <td id="3">$15000</td>
+                <td><button id="13" class="increment_class">+</button></td>
+                <td><button id="23" class="increment_class">-</button></td>
+                <td><button>*</button></td>
+            </tr>
+            <tr>
+                <td>Human Resource</td>
+                <td id="4">$25000</td>
+                <td><button id="14" class="increment_class">+</button></td>
+                <td><button id="24" class="increment_class">-</button></td>
+                <td><button>*</button></td>
+            </tr>
+            <tr>
+                <td>IT</td>
+                <td id="5">$8000</td>
+                <td><button id =15 class="increment_class">+</button></td>
+                <td><button  id="25" class="increment_class">-</button></td>
+                <td><button>*</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <h1>
+        Change Allocation
+    </h1>
+    <div class="second">
+        <li>
+            <label>Department</label>
+            <select>
+            
+                <option value="option2">Marketing</option>
+                <option value="option3">Finance</option>
+                <option value="optionC">Sales</option>
+                <option value="option1">Human Resource</option>
+                <option value="optionC">IT</option>
+            </select>
+        </li>
+        
+       <li>
+        <label>Department</label>
+        <select>
+            <option value="optionA">Option A</option>
+            <option value="optionB">Option B</option>
+            
+        </select>
+       </li>
+       <li>
+        <input type="text" placeholder="Enter text">
+        <button class="save-btn">Save</button>
+       </li>
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
