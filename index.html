@@ -12,13 +12,28 @@
       
             <li>
                 <label>Budget</label>
-                <input type="text">
+                <input id="Budget" type="text">
             </li>
             <li>
-                Remaining
+                <label>Remaining :</label>
+                <span id="Remaining">0</span>
+                
             </li>
             <li>
-                Spent so far
+                <label>Spent so far :</label>
+                <span id="Spent">0</span>
+                
+            </li>
+            <li>
+                <label>
+                    Currency 
+                </label>
+                <select>
+                <option value="">Dollar</option>
+                <option value="">Rupee</option>
+                <option value="">Euro</option>
+                <option value="">yen</option>
+            </select>   
             </li>
        
     </div>
@@ -36,35 +51,35 @@
         <tbody>
             <tr>
                 <td>Marketing</td>
-                <td id="1">$10000</td>
+                <td id="1">0</td>
                 <td><button id ="11" class="increment_class">+</button></td>
                 <td><button id="21" class="increment_class">-</button></td>
                 <td><button>*</button></td>
             </tr>
             <tr>
                 <td>Finance</td>
-                <td id="2">$20000</td>
+                <td id="2">0</td>
                 <td><button id="12" class="increment_class">+</button></td>
                 <td><button  id="22" class="increment_class">-</button></td>
                 <td><button>*</button></td>
             </tr>
             <tr>
                 <td>Sales</td>
-                <td id="3">$15000</td>
+                <td id="3">0</td>
                 <td><button id="13" class="increment_class">+</button></td>
                 <td><button id="23" class="increment_class">-</button></td>
                 <td><button>*</button></td>
             </tr>
             <tr>
                 <td>Human Resource</td>
-                <td id="4">$25000</td>
+                <td id="4">0</td>
                 <td><button id="14" class="increment_class">+</button></td>
                 <td><button id="24" class="increment_class">-</button></td>
                 <td><button>*</button></td>
             </tr>
             <tr>
                 <td>IT</td>
-                <td id="5">$8000</td>
+                <td id="5">0</td>
                 <td><button id =15 class="increment_class">+</button></td>
                 <td><button  id="25" class="increment_class">-</button></td>
                 <td><button>*</button></td>
@@ -77,27 +92,27 @@
     <div class="second">
         <li>
             <label>Department</label>
-            <select>
+            <select id="options">
             
-                <option value="option2">Marketing</option>
-                <option value="option3">Finance</option>
-                <option value="optionC">Sales</option>
-                <option value="option1">Human Resource</option>
-                <option value="optionC">IT</option>
+                <option value="option1">Marketing</option>
+                <option value="option2">Finance</option>
+                <option value="option3">Sales</option>
+                <option value="option4">Human Resource</option>
+                <option value="option5">IT</option>
             </select>
         </li>
         
        <li>
         <label>Department</label>
         <select>
-            <option value="optionA">Option A</option>
-            <option value="optionB">Option B</option>
+            <option value="optionA">Add</option>
+          
             
         </select>
        </li>
        <li>
-        <input type="text" placeholder="Enter text">
-        <button class="save-btn">Save</button>
+        <input  id="valueInput" type="text" placeholder="Enter text">
+        <button class="save-btn" onclick="updateContent()" >Save</button>
        </li>
         
     </div>

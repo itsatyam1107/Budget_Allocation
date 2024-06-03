@@ -15,8 +15,7 @@ for (var i = 0; i < incrementButtons.length; i++) {
         var value = newdiv.innerHTML;//$10000
         
         // Extract the prefix and numeric value
-        var prefix = value.substring(0, 1); //$
-        var numericValue = value.substring(1);//10000
+        var numericValue = value.substring(0);//10000
         
         // Convert numeric value to integer and increment by 10
         numericValue = parseInt(numericValue);
@@ -28,6 +27,60 @@ for (var i = 0; i < incrementButtons.length; i++) {
         }
         
         // Update the content of the element
-        newdiv.innerHTML = prefix + numericValue;
+        newdiv.innerHTML = numericValue;
+        sumValues();
     });
 }
+function updateContent() {
+    // Get the dropdown and text field elements
+    var dropdown = document.getElementById('options');
+    var textField = document.getElementById('valueInput');
+
+    // Get the selected option and text field value
+    var selectedOption = dropdown.options[dropdown.selectedIndex].value;
+    console.log(selectedOption);
+    var textFieldValue = textField.value; 
+    var last=selectedOption[selectedOption.length-1];
+    console.log(last);
+    targetElement=last;
+
+
+
+    // Get the target element to update
+    var targetElement = document.getElementById(targetElement);
+
+    // Update the inner content of the target element
+    targetElement.innerHTML = textFieldValue;
+    sumValues();
+}
+function sumValues() {
+    let sum = 0;
+    var bug=document.getElementById('Budget');
+    var textFieldValue2 = bug.value; //20000
+    // Iterate over elements with IDs 'element1' to 'element5'
+    for (let i = 1; i <= 5; i++) {
+        let element = document.getElementById(i);
+        
+        // Get the current value of the element, convert it to a number, and add it to the sum
+        let currentValue = parseFloat(element.innerHTML);
+        
+        // Check if the value is a number before adding to sum
+        if (!isNaN(currentValue)) {
+            sum += currentValue;
+        }
+    }
+    if(sum>textFieldValue2){
+        alert("You dont have budget");
+        return;
+    }
+
+    // Display the sum in the 'sumResult' element
+    document.getElementById('Spent').innerHTML =sum;
+    
+    var remaining=textFieldValue2-sum;
+    document.getElementById('Remaining').innerHTML = remaining;
+
+
+}
+
+
