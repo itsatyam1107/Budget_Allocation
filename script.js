@@ -15,6 +15,7 @@ for (var i = 0; i < incrementButtons.length; i++) {
         var value = newdiv.innerHTML;//$10000
         
         // Extract the prefix and numeric value
+
         var numericValue = value.substring(0);//10000
         
         // Convert numeric value to integer and increment by 10
@@ -27,36 +28,51 @@ for (var i = 0; i < incrementButtons.length; i++) {
         }
         
         // Update the content of the element
-        newdiv.innerHTML = numericValue;
+        newdiv.innerHTML = symbol + numericValue;
         sumValues();
     });
 }
+let symbol = '';
+
 function updateContent() {
     // Get the dropdown and text field elements
     var dropdown = document.getElementById('options');
     var textField = document.getElementById('valueInput');
+    var select_curr = document.getElementById('Currency');
 
     // Get the selected option and text field value
+    var selected_curr = select_curr.options[select_curr.selectedIndex].value;
     var selectedOption = dropdown.options[dropdown.selectedIndex].value;
     console.log(selectedOption);
     var textFieldValue = textField.value; 
-    var last=selectedOption[selectedOption.length-1];
+    var last = selectedOption[selectedOption.length - 1];
     console.log(last);
-    targetElement=last;
-
-
+    var targetElement = last;
+    
+    // Determine the symbol based on the selected option
+    if (selected_curr == "1") {
+        symbol = '$';
+    } else if (selected_curr == "2") {
+        symbol = '₹';
+    } else if (selected_curr == "3") {
+        symbol = '€';
+    } else if (selected_curr == "4") {
+        symbol = '¥';
+    }
 
     // Get the target element to update
-    var targetElement = document.getElementById(targetElement);
+    var targetElementElement = document.getElementById(targetElement);
 
     // Update the inner content of the target element
-    targetElement.innerHTML = textFieldValue;
+    targetElementElement.innerHTML = textFieldValue;
     sumValues();
 }
+
 function sumValues() {
     let sum = 0;
-    var bug=document.getElementById('Budget');
-    var textFieldValue2 = bug.value; //20000
+    var bug = document.getElementById('Budget');
+    var textFieldValue2 = parseFloat(bug.value); //20000
+    
     // Iterate over elements with IDs 'element1' to 'element5'
     for (let i = 1; i <= 5; i++) {
         let element = document.getElementById(i);
@@ -69,18 +85,16 @@ function sumValues() {
             sum += currentValue;
         }
     }
-    if(sum>textFieldValue2){
-        alert("You dont have budget");
+    
+    if (sum > textFieldValue2) {
+        alert("You don't have enough budget");
         return;
     }
 
     // Display the sum in the 'sumResult' element
-    document.getElementById('Spent').innerHTML =sum;
+    document.getElementById('Spent').innerHTML = `${symbol}${sum}`;
     
-    var remaining=textFieldValue2-sum;
-    document.getElementById('Remaining').innerHTML = remaining;
-
-
+    var remaining = textFieldValue2 - sum;
+    document.getElementById('Remaining').innerHTML = symbol + remaining;
+    document.getElementsByClassName('set_curr').innerHTML=symbol;
 }
-
-
