@@ -12,7 +12,7 @@
       
             <li>
                 <label>Budget</label>
-                <input id="Budget" type="text">
+                <input id="Budget" oninput="set_remaining()" type="text">
             </li>
             <li>
                 <label>Remaining :</label>
@@ -21,14 +21,14 @@
             </li>
             <li>
                 <label>Spent so far :</label>
-                <span id="Spent">0</span>
+                <span id="Spent"></span>
                 
             </li>
             <li>
                 <label>
                     Currency 
                 </label>
-                <select id="Currency">
+                <select id="Currency" onclick="updateCurrency()">
                 <option value="1">Dollar</option>
                 <option value="2">Rupee</option>
                 <option value="3">Euro</option>
@@ -51,7 +51,7 @@
         <tbody>
             <tr>
                 <td>Marketing</td>
-                <td id="1"><span class="set_curr"></span>0</td>
+                <td id="1">0</td>
                 <td><button id ="11" class="increment_class">+</button></td>
                 <td><button id="21" class="increment_class">-</button></td>
                 <td><button>*</button></td>
@@ -92,7 +92,7 @@
     <div class="second">
         <li>
             <label>Department</label>
-            <select id="options">
+            <select id="options" onchange="updateCurrency()">
             
                 <option value="option1">Marketing</option>
                 <option value="option2">Finance</option>
@@ -111,7 +111,7 @@
         </select>
        </li>
        <li>
-        <input  id="valueInput" type="text" placeholder="Enter text">
+        <input  id="valueInput" type="text" oninput="check()" placeholder="Enter text">
         <button class="save-btn" onclick="updateContent()" >Save</button>
        </li>
         
