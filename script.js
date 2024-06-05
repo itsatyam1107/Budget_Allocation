@@ -42,10 +42,13 @@ function updateAllCurrencySymbols() {
     document.getElementById('Spent').innerHTML = symbol + sum;
     const remaining = textFieldValue2 - sum;
     document.getElementById('Remaining').innerHTML = symbol + remaining;
+    document.getElementById('bug_label').innerHTML = "Budget "+symbol;
+    document.getElementById('prefix').innerHTML = symbol;
+
 }
 
 function sumValues() {
-    sum = 0; // Reset the sum before recalculating
+    sum = 0; 
     textFieldValue2 = parseInt(document.getElementById('Budget').value) || 0;
 
     for (let i = 1; i <= 5; i++) {
@@ -60,15 +63,13 @@ function sumValues() {
     document.getElementById('Remaining').innerHTML = symbol + (textFieldValue2 - sum);
 }
 
-// ... (rest of the code is the same)
 
-// Event Listeners
 const incrementButtons = document.getElementsByClassName('increment_class');
 for (let i = 0; i < incrementButtons.length; i++) {
     incrementButtons[i].addEventListener('click', function() {
         const remaining = parseInt(document.getElementById('Remaining').innerHTML.substring(1)) || 0;
 
-        if (remaining === 0 && this.id[0] === '1') { // Only check for increment
+        if (remaining === 0 && this.id[0] === '1') { 
             alert("You don't have any budget remaining.");
             return;
         }
@@ -78,7 +79,7 @@ for (let i = 0; i < incrementButtons.length; i++) {
         let numericValue = parseInt(newDiv.innerHTML.substring(1)) || 0;
         numericValue += (buttonId[0] === '1') ? 10 : -10;
 
-        // Prevent going negative (for decrement buttons)
+       
         if (numericValue < 0 && buttonId[0] === '2') {
             numericValue = 0;
         }
@@ -86,7 +87,7 @@ for (let i = 0; i < incrementButtons.length; i++) {
         newDiv.innerHTML = symbol + numericValue;
         sumValues();
 
-        // Update button states based on the remaining amount
+       
         updateButtonStates();
     });
 }
@@ -94,14 +95,10 @@ for (let i = 0; i < incrementButtons.length; i++) {
 function updateButtonStates() {
     const remaining = parseInt(document.getElementById('Remaining').innerHTML.substring(1)) || 0;
     for (let i = 0; i < incrementButtons.length; i++) {
-        // Disable increment when remaining is zero
+       
         incrementButtons[i].disabled = (remaining === 0 && incrementButtons[i].id[0] === '1'); 
     }
 }
-
-// ... (rest of the code)
-
-
 
 function check() {
     const budgetInput = document.getElementById('Budget');

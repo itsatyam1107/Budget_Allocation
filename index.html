@@ -11,7 +11,7 @@
     <div class="main">
       
             <li>
-                <label>Budget</label>
+                <label id="bug_label">Budget</label>
                 <input id="Budget" oninput="set_remaining()" type="text">
             </li>
             <li>
@@ -21,7 +21,7 @@
             </li>
             <li>
                 <label>Spent so far :</label>
-                <span id="Spent"></span>
+                <span id="Spent">0</span>
                 
             </li>
             <li>
@@ -111,7 +111,9 @@
         </select>
        </li>
        <li>
+        <span id="prefix"></span>
         <input  id="valueInput" type="text" oninput="check()" placeholder="Enter text">
+        
         <button class="save-btn" onclick="updateContent()" >Save</button>
        </li>
         
