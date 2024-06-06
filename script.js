@@ -1,6 +1,6 @@
 let symbol = '';
 let sum = 0; 
-let textFieldValue2; // Declare this variable outside functions
+let textFieldValue2; 
 
 function updateCurrency() {
     const selectCurr = document.getElementById('Currency');
@@ -123,6 +123,4 @@ function set_remaining() {
     const bugVal = parseInt(bug.value) || 0;
     rem.innerHTML = symbol + bugVal;
 }
-
-// Initial Update
 updateCurrency(); 
